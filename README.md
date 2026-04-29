@@ -53,8 +53,8 @@ mern-journey/
 
 ## 🤝 Connect With Me
 
-* GitHub: https://[github.com/your-username](https://github.com/aryanvisualize)
-* LinkedIn: [(Add your link)](https://www.linkedin.com/in/aryan-rastogi-75426222a/)
+* GitHub: https://[aryanvisualize](https://github.com/aryanvisualize)
+* LinkedIn: [(Aryan Rastogi)](https://www.linkedin.com/in/aryan-rastogi-75426222a/)
 
 ---
 
