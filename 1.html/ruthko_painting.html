@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rothko Style Layout</title>
+
+  <style>
+    
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#d9d9d9;
+      font-family:Arial, sans-serif;
+    }
+
+    /* OUTER FRAME */
+    .painting-frame{
+      width:420px;
+      height:700px;
+
+      background:#d7c9a5;
+
+      padding:35px;
+
+      border-radius:18px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+
+      box-shadow:
+        0 0 0 12px #b89c6b,
+        0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    /* INNER CANVAS */
+    .canvas{
+      width:100%;
+      height:100%;
+
+      background:#8d4a2f;
+
+      border-radius:12px;
+
+      padding:28px;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    /* COLOR BLOCKS */
+    .block{
+      border-radius:20px;
+
+      opacity:0.95;
+
+      box-shadow:
+        inset 0 0 30px rgba(255,255,255,0.08),
+        inset 0 0 40px rgba(0,0,0,0.15);
+    }
+
+    /* TOP BLOCK */
+    .block-1{
+      height:28%;
+      background:#b86a3c;
+
+      margin-bottom:18px;
+    }
+
+    /* MIDDLE BLOCK */
+    .block-2{
+      height:30%;
+      background:#d08f54;
+
+      margin-bottom:18px;
+    }
+
+    /* BOTTOM BLOCK */
+    .block-3{
+      height:20%;
+      background:#e0b56f;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- EXTERNAL FRAME -->
+  <div class="painting-frame">
+
+    <!-- INTERNAL CANVAS -->
+    <div class="canvas">
+
+      <!-- COLOR FIELDS -->
+      <div class="block block-1"></div>
+
+      <div class="block block-2"></div>
+
+      <div class="block block-3"></div>
+
+    </div>
+  </div>
+
+</body>
+</html>

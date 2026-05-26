@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+        #important{
+            color: green;
+        }
+        h1::before{
+            content: "Welcome to ";
+        }
+        h1::after{
+            content: " for JSS";
+        }
+        input::placeholder{
+            color: red
+        }
+        input[type="text"]{
+            background-color: lightblue;
+        }
+
+    </style> 
+
+</head>
+<body>
+    <h1>College Event Form</h1>
+    <p align="center"><em>Please fill out the form below to register for the upcoming college event.</em></p>
+    <ul>
+        <li id="important">Event Date: 7/05/2026</li>
+        <li>Event Location: JSS Acadamey of Technical Education Noida Sector 62</li>
+        <li>Event Description: Join us for an exciting college event filled with activities and networking opportunities!</li>
+        <li>Dress Code: Day 1 - Ethnic wear, Day 2- Casual</li>
+    </ul>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9A_pcT3KGfDJkK0LTF4BzMrY5hfh5pBo-jw&s" alt="">
+    <form action="">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName">
+            <br><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName">
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <br><br>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone">
+            <br><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+            <br><br>
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender">
+            <label for="other">Other</label>
+        </fieldset>
+        <fieldset>
+            <legend>Academic Information</legend>
+            <label for="collegeName">College Name:</label>
+            <input type="text" id="collegeName">
+            <br><br>
+            <label for="major">Major:</label>
+            <select id="major">
+                <option value="">Select a major</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Business">Business</option>
+            </select>
+        </fieldset>
+        <br>
+        <label for="ID">ID Card:</label>
+        <input type="file">
+        <br><br>
+        <input type="submit" value="Submit" align="center">
+    </form>
+</body>
+</html>
