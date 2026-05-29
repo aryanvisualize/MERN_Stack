@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="red">Red</button>
+    <button id="green">Green</button>
+    <!-- Inorder to solve this problem we use closure Property-->
+
+     <!-- I am unable to change the color because when the parent execution is finished
+      the function is also gone with the parent -->
+
+    <!-- Closure-> A function that remembers the outer lexical environment,
+     allowing it to access variable from parent scope even after the parent function has
+     finished executing -->
+    <!-- Closure works by scope chaining -->
+    <script>
+        let red = document.getElementById("red").onclick = handleClick("red");
+        let blue = document.getElementById("green").onclick = handleClick("green");
+
+        function handleClick(color){
+            // document.body.style.backgroundColor = color;  //Instead we write 1 more function int it.
+            return function(){
+                document.body.style.backgroundColor = color;    //Encapsulation
+            };
+        }
+    </script>
+</body>
+</html>
