@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grandparent"> gp
+        <div class="parent"> parent
+            <div class="child"> child
+            </div>
+        </div>
+    </div>
+    <script>
+        document.body.addEventListener(
+            "click", 
+            (e) => {
+                const heading = document.querySelector("#data");
+                heading.innerHtml = 
+            console.log('Button clicked!');
+            console.log('Event Target:', event.target); // The actual element that was clicked
+            console.log('Current Target:', event.currentTarget); // The element that is currently handling the event
+            console.log('Event Type:', event.type); // The type of event (e.g., 'click')
+        });
+
+    </script>
+    
+</body>
+</html>
