@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- <p id="fpara">hello Ji</p> -->
+        <!-- <a id="fanchor" href="https://github.com/aryanvisualize">My Git</a> -->
+
+        <p id="fpara">First <span>11111</span> para</p>
+        <p id="spara">Second <span>22222</span> para</p>
+        <p id="tpara">Third <span>33333</span> para</p>
+        <p id="fopara">Forth <span>44444</span> para</p>
+    </div>
+    <script>
+
+        // function changeText(event){
+        //     console.log(event);
+        //     let fpara = document.getElementById("fpara");
+        //     fpara.textContent = "Hello Its Aryan";  
+        // }
+
+        // let fpara = document.getElementById("fpara");
+        // fpara.addEventListener('click', changeText);
+        // //fpara.removeEventListener('click', changeText);
+
+        // let anchorElement = document.getElementById('fanchor');
+        // let anchorEvent = anchorElement.addEventListener('click', preventDefault);
+        // //This will prevent the default action of the anchor tag and will not redirect to the link provided in the href attribute.
+
+        // function preventDefault(event){
+        //     event.preventDefault();
+        //     anchorElement.style.color = "red";
+        //     console.log("I am inside the preventDefault function");
+        // }
+
+        let paras = document.querySelectorAll('p');
+
+        function alertPara(event){
+            if(event.target.nodeName === "SPAN"){
+                alert("You have Clicked on "+ event.target.textContent);
+            }
+            
+        }
+
+        // for(let i=0; i<paras.length; i++){
+        //     let para = paras[i];
+        //     console.log("eventListener Added");
+        //     para.addEventListener('click', alertPara);
+        // }
+
+        let mydiv = document.getElementById('wrapper');
+        mydiv.addEventListener('click',alertPara);
+
+    </script>
+</body>
+</html>

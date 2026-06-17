@@ -1,0 +1,62 @@
+<!DOCTYPE html>     
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Standard to check the performance of code in JS -> performace.now() = timestamp
+        //Reflow = Process of calculating postion/ dimension of element (computationally intensive task)
+        //Replain -> Process of displaying content/element pixel by pixel
+
+        //code 1
+        const t1 = performance.now();
+
+        for(let i=1; i<=100; i++){
+            let para = document.createElement('p');
+            para.textContent = "This is para" + i;
+            document.body.appendChild(para);
+        }
+        const t2 = performance.now();
+        console.log("total time by code 1: " + (t2-t1)); 
+        //Code 1 is more performance intensive because here no. of reflow & repaints are 100
+
+        //code 2
+
+        const t3 = performance.now();
+        let mydiv = document.createElement('div');
+        for(let i=1; i<=100; i++){
+            let para = document.createElement('p');
+            para.textContent = "This is para" + i;
+            mydiv.appendChild(para);
+        }
+        document.body.appendChild(mydiv);
+
+        const t4 = performance.now();
+        console.log("total time by code 2: " + (t4-t3));
+        //Code 2 is less performance intensive because here no. of reflow & repaints are 1 i.e because of div
+
+
+        //Code 3  (document fragment)
+
+        const t5 = performance.now();
+
+        let fragment = document.createDocumentFragment();
+        for(let i=1; i<=100; i++){
+            let para = document.createElement('p');
+            para.textContent = "This para " + i;
+            //No reflow and no repaint
+            fragment.appendChild(para);
+        }
+        //Takes 1 reflow and 1 repaint 
+        document.body.appendChild(fragment);
+        
+        const t6 = performance.now();
+        console.log("total time by code 2: " + (t6-t5));
+
+    </script>
+</body>
+</html>
+
