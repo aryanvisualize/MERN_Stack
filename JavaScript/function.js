@@ -8,7 +8,7 @@ let obj = {
         console.log("hello world");
     }
 }
-console.log(obj.age);g
+console.log(obj.age);
 obj.greet();
 
 // const arr = [      //Array of functions ->functions can be stored in data structures

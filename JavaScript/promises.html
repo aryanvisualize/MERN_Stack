@@ -7,8 +7,8 @@
 </head>
 <body>
     <script>
-        const result = fetch("https://dummyjson.com/products");
-        console.log(result);
+        // const result = fetch("https://dummyjson.com/products");
+        // console.log(result);
         // result
         //   .then((res) => res.json())
         //   .then((data) => {
@@ -19,6 +19,49 @@
         //     console.log("process done");
         //   });
 
+        // let promise1 = new Promise((resolve, reject)=>{
+        //     let success = true;
+        //     if(success){
+        //         resolve("promise fullfilled");
+        //     }
+        //     else{
+        //         reject("Promise Rejected");
+        //     }
+        // });
+
+        // promise1.then((message) =>{
+        //     console.log("The message is "+ message );
+        // }).catch((error)=>{
+        //     console.log("Error: "+ error); 
+        // })
+
+        // promise1.then((message)=>{
+        //     console.log("first message: "+ message);
+        //     return "Promise fullfilled second message";
+        // }).then((message)=>{
+        //     console.log("Second message: "+ message);
+        //     return "Promise fullfilled third message";
+        // }).then((message)=>{
+        //     console.log("third message: "+ message);
+        // }).catch((error)=>{
+        //     console.error(error);
+        // }).finally((message)=>{
+        //     console.log("Its a finally block");
+        // });
+
+        let promise1 = new Promise((resolve, reject)=>{
+            setTimeout(resolve, 1000, "First");
+        })
+        let promise2 = new Promise((resolve, reject)=>{
+            setTimeout(resolve, 1000, "Second");
+        })
+        let promise3 = new Promise((resolve, reject)=>{
+            setTimeout(resolve, 1000, "Third");
+        })
+        Promise.all([promise1, promise2, promise3])
+        .then((value)=>{
+            console.log(value);
+        })
     </script>
 </body>
 </html>
