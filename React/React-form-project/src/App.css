@@ -1,0 +1,18 @@
+body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: aliceblue;
+}
+
+.input-error{
+  border: 2px solid red;
+}
+
+.error-msg{
+  color: red;
+  font-style: italic;
+}
