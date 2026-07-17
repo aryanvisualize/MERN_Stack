@@ -28,7 +28,7 @@ const hospitalSchema = new mongoose.Schema(
     pincode : {
       type : Number,
       required : true,
-    }
+    },
     registrationNo: {
       type: Number,
       required: true,
