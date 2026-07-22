@@ -1,6 +1,9 @@
 import express from "express";
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import verificationToken from "../middleware/verifyToken.middle.js";
+import { loginLimitter } from "../config/rateLimit.config.js";
 
 const authController = express();
 
@@ -23,7 +26,7 @@ authController.post("/register", async (req, res) => {
     }   
 });
 
-authController.post("/login",async (req, res) => {
+authController.post("/login", loginLimitter, async (req, res) => {
     try{
         const {email, password} = req.body;
         const user = await User.findOne({email});
@@ -31,10 +34,24 @@ authController.post("/login",async (req, res) => {
 
         const isValidPass = await bcrypt.compare(password, user.password);
         if (!isValidPass) return res.status(400).json({message: "invalid credentials"});
+        const token = jwt.sign(
+            {id: user._id, email: user.email, username: user.username},
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "1h",
+            },
+        );
+        console.log(token);
+        res.cookie("token", token, {httpOnly: true, maxAge: 24 * 60 * 60 * 1000},
+        );
         res.status(200).json({message: "Login successful "});
     } catch (err) {
         res.status(400).json({message: err.message});
     }
+});
+
+authController.get("/users", verificationToken, async (req, res)=>{
+    res.end("hii");
 });
 
 authController.post("/logout", (req, res) => {
