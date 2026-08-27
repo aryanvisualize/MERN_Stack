@@ -1,13 +1,13 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const dns = require("dns");
+
 
 dns.setServers(["8.8.8.8"]);
 
 async function connectDB() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://aryanvisualize_db_user:hioinvhAFa6lSdrS@complete-backend.y369j13.mongodb.net/backend"
-    );
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log("Connected to DB");
   } catch (error) {

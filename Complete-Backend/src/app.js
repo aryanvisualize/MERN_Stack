@@ -39,22 +39,25 @@ app.get('/notes',async (req, res)=>{
 })
 
 //Delete a note -> Delete
-app.delete('/notes/:index', (req, res)=>{       //Dynamic route is considered to be params
-    const index = req.params.index
+app.delete('/notes/:id', async (req, res)=>{       //Dynamic route is considered to be params
+    const id = req.params.id
 
-    delete notes[index]
-
-    res.status(200).json({
-        message: "note deleted successfully"
+    await noteModel.findOneAndDelete({
+        _id: id
     })
+    
+    res.status(200).json({
+        message: "Note deleted successfully"
+    })
+
 })
 
 //Update details in a list
-app.patch('/notes/:index', (req, res)=>{
-    const index = req.params.index;
+app.patch('/notes/:id', async (req, res)=>{
+    const id = req.params.id;
     const description = req.body.description;
-
-    notes[index].description = description
+    //findOneAndUpdate -> {} {} takes two objects 1st for the searching, second for what to update
+    await noteModel.findOneAndUpdate({_id: id}, {description: description})
 
     res.status(200).json({
         message: "note Updated succcessfully"
