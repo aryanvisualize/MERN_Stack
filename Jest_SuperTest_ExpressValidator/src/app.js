@@ -3,6 +3,8 @@ const validationRules = require('./middlewares/validation.middleware.js');
 
 const app = express();
 
+app.use(express.json());
+
 
 app.get('/', (req, res)=>{
     res.status(200).json({message: "Hello World"});
@@ -10,6 +12,7 @@ app.get('/', (req, res)=>{
 
 app.post('/register', validationRules.registerUserValidationRules, (req, res)=>{
     const {username, email, password} = req.body; 
+    res.status(201).json({username, email, password});
 })
 
 
